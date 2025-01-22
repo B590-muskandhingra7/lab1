@@ -1,4 +1,4 @@
-package iu.c323.fall2024.geoquiz
+package iu.b590.spring2025.lab1
 
 import android.os.Bundle
 import android.view.View
