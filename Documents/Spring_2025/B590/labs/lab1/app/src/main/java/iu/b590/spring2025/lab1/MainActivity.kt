@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.activity.enableEdgeToEdge
 
 class MainActivity : AppCompatActivity() {
-
+//this is new projext
     private lateinit var trueButton: Button
     private lateinit var falseButton: Button
 
