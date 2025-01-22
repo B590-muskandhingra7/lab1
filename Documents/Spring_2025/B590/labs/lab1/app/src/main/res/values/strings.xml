@@ -1,11 +1,27 @@
 <resources>
-    <!-- Existing strings, e.g.: -->
-    <string name="app_name">Lab1</string>
-    <string name="question_text">Canberra is the capital of Australia.</string>
+    <!-- App name -->
+    <string name="app_name">GeoQuiz</string>
+
+    <!-- Buttons -->
     <string name="true_button">True</string>
     <string name="false_button">False</string>
+    <string name="next_button">Next</string>
 
-    <!-- Add these two new ones for the Toasts: -->
+    <!-- Toast messages -->
     <string name="correct_toast">Correct!</string>
     <string name="incorrect_toast">Incorrect!</string>
+
+    <!-- Single-question example (if you only had one) -->
+    <string name="question_text">Canberra is the capital of Australia.</string>
+
+    <!-- Multiple quiz questions -->
+    <string name="question_australia">Canberra is the capital of Australia.</string>
+    <string name="question_oceans">The Pacific Ocean is larger than the Atlantic Ocean.</string>
+    <string name="question_mideast">The Suez Canal connects the Red Sea and the Indian Ocean.</string>
+    <string name="question_africa">The source of the Nile River is in Egypt.</string>
+    <string name="question_americas">The Amazon River is the longest river in the Americas.</string>
+
+    <!-- NOTE: Removed the apostrophe from "world's" to avoid special char issues. -->
+    <string name="question_asia">Lake Baikal is the worlds oldest and deepest freshwater lake.</string>
+
 </resources>
