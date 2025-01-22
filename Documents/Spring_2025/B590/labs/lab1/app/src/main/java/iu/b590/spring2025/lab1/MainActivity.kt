@@ -7,10 +7,9 @@ import iu.b590.spring2025.lab1.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
-    // Instead of multiple findViewById calls,
-    // we use a single "binding" object from View Binding
     private lateinit var binding: ActivityMainBinding
 
+    // Example question bank referencing R.string.* resources
     private val questionBank = listOf(
         Question(R.string.question_australia, true),
         Question(R.string.question_oceans, true),
@@ -24,37 +23,42 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        // Inflate the binding for activity_main.xml
         binding = ActivityMainBinding.inflate(layoutInflater)
-        // Set the activity's content to the root of the binding
         setContentView(binding.root)
 
-        // Display the first question text
+        // Show the first question
         updateQuestion()
 
         // TRUE button listener
         binding.trueButton.setOnClickListener {
-            checkAnswer(true)
+            // Instead of hardcoding a "correct" toast, we delegate to checkAnswer()
+            checkAnswer(userAnswer = true)
         }
 
         // FALSE button listener
         binding.falseButton.setOnClickListener {
-            checkAnswer(false)
+            checkAnswer(userAnswer = false)
         }
 
-        // NEXT button listener
+        // NEXT button listener (move to the next question in the list)
         binding.nextButton.setOnClickListener {
             currentIndex = (currentIndex + 1) % questionBank.size
             updateQuestion()
         }
     }
 
+    /**
+     * Updates the TextView to show the current question's text.
+     */
     private fun updateQuestion() {
         val questionTextResId = questionBank[currentIndex].textResId
-        // Use binding to access the question_text_view
         binding.questionTextView.setText(questionTextResId)
     }
 
+    /**
+     * Compares the user's answer (true/false) against the question's correct answer.
+     * Displays a toast message indicating "Correct" or "Incorrect."
+     */
     private fun checkAnswer(userAnswer: Boolean) {
         val correctAnswer = questionBank[currentIndex].answer
         val messageResId = if (userAnswer == correctAnswer) {
